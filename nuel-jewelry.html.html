@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuel Jewelry Design and Curation | Seattle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2a2a2a;
+            background-color: #0a0a0a;
+            position: relative;
+        }
+
+        header {
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(19, 116, 113, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 5px;
+            font-family: 'Optima', 'Segoe UI', 'Candara', sans-serif;
+            font-style: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover {
+            color: #137471;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d2d2d 50%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(19, 116, 113, 0.15) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            z-index: 1;
+            background-image: url('Free-Golden-Art-Deco-Background-102-4x682.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 8px;
+            font-family: 'Optima', 'Segoe UI', 'Candara', sans-serif;
+            font-style: normal;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.4rem;
+            color: #137471;
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 3.5rem;
+            background: transparent;
+            color: #137471;
+            text-decoration: none;
+            border: 2px solid #137471;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            font-weight: 400;
+        }
+
+        .cta-button:hover {
+            background: #137471;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(19, 116, 113, 0.4);
+        }
+
+        section {
+            padding: 7rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 6px;
+            font-family: 'Georgia', serif;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #808080;
+            font-size: 1.1rem;
+            margin-bottom: 5rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .collections {
+            background: #0a0a0a;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: #1a1a1a;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+            aspect-ratio: 1;
+            border: 1px solid rgba(19, 116, 113, 0.2);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: rgba(19, 116, 113, 0.6);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(19, 116, 113, 0.2) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover .gallery-info {
+            transform: translateY(0);
+        }
+
+        .gallery-info h3 {
+            margin-bottom: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 1.4rem;
+            color: #137471;
+        }
+
+        .gallery-info p {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .placeholder-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1a1a1a;
+            border: 2px dashed rgba(19, 116, 113, 0.3);
+        }
+
+        .placeholder-text {
+            color: #606060;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .philosophy {
+            background: #0f0f0f;
+            color: #e0e0e0;
+            padding: 8rem 5%;
+            position: relative;
+        }
+
+        .philosophy h2 {
+            color: #ffffff;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .philosophy-content p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            color: #c0c0c0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(19, 116, 113, 0.3);
+            transition: all 0.4s;
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        .philosophy-item:hover {
+            border-color: #137471;
+            background: rgba(19, 116, 113, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .philosophy-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #137471;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .philosophy-item p {
+            font-size: 1rem;
+            color: #a0a0a0;
+        }
+
+        .about {
+            background: #0a0a0a;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 1.8rem;
+            color: #a0a0a0;
+            text-align: center;
+        }
+
+        .process {
+            background: #0f0f0f;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 3.5rem 2.5rem;
+            background: #1a1a1a;
+            transition: all 0.4s;
+            border: 1px solid rgba(19, 116, 113, 0.3);
+        }
+
+        .step:hover {
+            background: rgba(19, 116, 113, 0.1);
+            border-color: #137471;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: #137471;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .step p {
+            color: #909090;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            padding: 8rem 5%;
+        }
+
+        .contact h2 {
+            color: #ffffff;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #c0c0c0;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background: rgba(26, 26, 26, 0.6);
+            padding: 3rem;
+            border: 1px solid rgba(19, 116, 113, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #137471;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(19, 116, 113, 0.4);
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #137471;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: transparent;
+            color: #137471;
+            border: 2px solid #137471;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-weight: 400;
+        }
+
+        .submit-button:hover {
+            background: #137471;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(19, 116, 113, 0.4);
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(19, 116, 113, 0.3);
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+        }
+
+        .contact-item a {
+            color: #137471;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0a0a0a;
+            color: #606060;
+            border-top: 1px solid rgba(19, 116, 113, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nuel</div>
+            <ul class="nav-links">
+                <li><a href="#collections">Collection</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h1>Nuel</h1>
+                <p class="tagline">Jewelry Design & Curation</p>
+                <p class="subtitle">One-of-a-kind pieces crafted with ethically sourced materials</p>
+                <a href="#collections" class="cta-button">Explore Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="collections" class="collections">
+        <h2>Featured Collection</h2>
+        <p class="section-subtitle">Each piece tells its own story</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="image.jpg" alt="Copper Leaf Statement Necklace" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Organic Statement Necklace</h3>
+                    <p>Handcrafted copper leaf with oxidized silver chain</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (1).jpg" alt="Peach Aventurine Pendant" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Peach Aventurine Pendant</h3>
+                    <p>Delicate bezel-set stone on sterling silver</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (2).jpg" alt="Sushi Necklace" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Whimsical Sushi Necklace</h3>
+                    <p>Playful enamel and sterling silver</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="image (3).jpg" alt="Amethyst Ring" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Floral Amethyst Ring</h3>
+                    <p>Faceted amethyst with hand-engraved band</p>
+                </div>
+            </div>
+            <div class="gallery-item placeholder-item">
+                <div class="placeholder-text">Coming Soon</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="philosophy">
+        <h2>Design Philosophy</h2>
+        <p class="section-subtitle">Where artistry meets ethics</p>
+        <div class="philosophy-content">
+            <p>At Nuel, jewelry is more than adornment—it's wearable art with a conscience. Every piece begins with a commitment to ethical sourcing, ensuring that the materials we work with honor both the earth and the hands that extract them.</p>
+            <p>Our designs range from contemporary minimalism to art nouveau romanticism, with unexpected moments of whimsy. Each creation is one-of-a-kind or produced in extremely limited quantities, ensuring that your piece remains as individual as you are.</p>
+        </div>
+        <div class="philosophy-grid">
+            <div class="philosophy-item">
+                <h3>Ethically Sourced</h3>
+                <p>Every metal and gemstone is carefully selected from suppliers committed to responsible mining and fair labor practices.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>One of a Kind</h3>
+                <p>Limited production ensures exclusivity. Your jewelry is a unique work of art, not mass-produced.</p>
+            </div>
+            <div class="philosophy-item">
+                <h3>Designer Crafted</h3>
+                <p>Each piece is designed and crafted in our Seattle studio with meticulous attention to detail.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Nuel</h2>
+        <p class="section-subtitle">Designer-owned and operated in Seattle</p>
+        <div class="about-content">
+            <p>Nuel Jewelry Design and Curation was born from a childhood love of rocks and minerals that developed into a passion for gemology combined with an artistic desire to create. This venture developed organically out of a hobby and artistic outlet.</p>
+            <p>Based in Seattle, our independent studio specializes in pieces that blend contemporary sophistication with vintage-inspired details and occasional playful flourishes. We believe that luxury shouldn't come at the expense of ethics, which is why every gemstone and precious metal reflects our commitment to responsible sourcing and sustainable practices.</p>
+            <p>Whether you're drawn to the clean lines of modern design, the ornate beauty of art nouveau, or the unexpected charm of whimsical accents, you'll find something that speaks to your individual style in our collection.</p>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <h2>Our Process</h2>
+        <p class="section-subtitle">From concept to creation</p>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3>Sourcing</h3>
+                <p>We carefully select ethically sourced metals and gemstones from verified suppliers who share our values.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3>Design</h3>
+                <p>Each piece is hand-drawn and refined, balancing aesthetic vision with wearability and craftsmanship.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3>Fabrication</h3>
+                <p>Using traditional metalsmithing techniques combined with contemporary methods, we bring each design to life.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3>Finishing</h3>
+                <p>Final polishing, setting, and quality inspection ensure every piece meets our exacting standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <p class="contact-intro">Interested in commissioning a custom piece or learning more about our current collection? We'd love to hear from you.</p>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>Email:</strong> <a href="mailto:nueljewelrydesign@gmail.com">nueljewelrydesign@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Instagram:</strong> <a href="https://instagram.com/nueljewelrydesign" target="_blank">@nueljewelrydesign</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> Seattle, Washington
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Nuel Jewelry Design and Curation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>>
+            <div class="gallery-item placeholder-item">
+                <div class="placeholder-text">Coming Soon</div>
+            </div
